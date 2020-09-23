@@ -82,9 +82,9 @@ const Header = () => {
         })`,
       }}
     >
-      <div className="header__nav">
+      {/* <div className="header__nav">
         <VerticalNav />
-      </div>
+      </div> */}
 
       <div className="header__content">
         <div className="header__top">

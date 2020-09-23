@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Nav, Footer } from "./";
+import { Footer } from "./";
 
 import "./layout.css";
 const Layout = ({ children }) => {
@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
 
       <>{children}</>
 
-      <>{/* <Footer /> */}</>
+      <>
+        <Footer />
+      </>
     </div>
   );
 };

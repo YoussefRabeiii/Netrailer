@@ -1,0 +1,12 @@
+.social li {
+  display: inline-block;
+}
+
+.social__fa {
+  transition: ease-in-out 1s;
+}
+
+.social__fa:hover {
+  color: var(--primary);
+  transform: translateY(-5px);
+}
