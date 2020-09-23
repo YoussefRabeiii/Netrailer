@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Social } from "./";
 import { FaCode, FaRegHeart, FaCoffee } from "react-icons/fa";
 
-import "../styles/components/footer.css";
+import "./footer.css";
 const Footer = () => {
   return (
     <footer>
