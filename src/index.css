@@ -41,6 +41,7 @@ header {
 
 main {
   min-height: 100vh;
+  padding-block-end: 20px;
   color: var(--onBackground);
   background-color: var(--background);
 }

@@ -3,12 +3,13 @@ footer {
   height: 45vh;
   padding: 30px;
   text-align: center;
-  margin-block-start: 20px;
+  margin-block-start: -15px;
   background-color: var(--surface);
 }
 
 .footer__logo {
   font-size: 1.5em;
+  color: var(--primary);
   margin-block-end: 40px;
 }
 

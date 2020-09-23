@@ -3,6 +3,7 @@
 }
 
 .social__fa {
+  color: var(--onSurface);
   transition: ease-in-out 1s;
 }
 

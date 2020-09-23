@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { VerticalNav } from "./";
+// import { VerticalNav } from "./";
 import { FaPlay } from "react-icons/fa";
 import { instance as axios, paths, imgBaseUrl } from "../api";
 
