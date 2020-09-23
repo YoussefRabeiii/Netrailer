@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Social } from "./";
+import { Social } from "./Social";
 import { FaCode, FaRegHeart, FaCoffee } from "react-icons/fa";
 
 import "./footer.css";
