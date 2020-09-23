@@ -1,0 +1,23 @@
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.row h2 {
+}
+
+.row .row__posters {
+}
+
+.row .row__posters .row__poster {
+  width: 200px;
+  height: 100px;
+}
+
+.row .row__posters .row__poster--large {
+  width: 100px;
+  height: 200px;
+}
+
+.row .trailer {
+}

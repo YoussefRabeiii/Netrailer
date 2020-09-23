@@ -1,0 +1,44 @@
+.card img {
+  border-radius: 10px;
+  object-fit: contain;
+  transition: ease-in-out 0.6s;
+}
+
+.card img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.card__poster {
+  width: 170px;
+}
+
+.card__backdrop {
+  height: 170px;
+}
+
+.card__type {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  display: none;
+  position: relative;
+  border-radius: 10px;
+  color: var(--background);
+  margin-block-start: -48px;
+  backdrop-filter: blur(5px);
+  transition: ease-in-out 0.6s;
+  background-color: var(--backgroundOp50);
+}
+
+.card__type h1 {
+  margin: auto;
+  font-size: 1.4rem;
+  color: var(--onBackground);
+}
+
+.card__tv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
