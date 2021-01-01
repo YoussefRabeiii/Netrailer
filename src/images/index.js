@@ -1,2 +1,1 @@
-export { default as LogoGreen } from "logo.png";
-export { default as LogoRed } from "logoRed.png";
+export { default as strangerThingsCover } from "./Stranger Things.jpg";

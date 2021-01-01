@@ -30,6 +30,12 @@ const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
     }
   };
 
+  const onPosterClose = () => {
+    setClickedID(null);
+    setTrailerKey(null);
+    setClickedTitle(null);
+  };
+
   const fetchData = async (fetchTv, fetchMovie) => {
     const { data: fetchedTv } = await axios.get(fetchTv);
     fetchedTv.results.map((series) => (series.isSeries = true));
@@ -41,7 +47,7 @@ const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
       ? [...fetchedTv.results, ...fetchedMovies.results]
       : fetchedTv.results;
     const sortedMedia = combinedMedia.sort(
-      (a, b) => b.popularity > a.popularity
+      (a, b) => b.popularity - a.popularity
     );
 
     setMedia(sortedMedia);
@@ -94,20 +100,22 @@ const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
         })}
       </div>
 
-      <div className="row__trailer">
-        <h1 className="row__trailer__title">{clickedTitle || null}</h1>
-        {trailerKey ? (
+      {trailerKey && (
+        <div className="row__trailer">
+          <div className="row__trailer__header">
+            <h1 className="row__trailer__title">{clickedTitle || null}</h1>
+            <h1 className="row__trailer__close" onClick={onPosterClose}>
+              X
+            </h1>
+          </div>
+
           <Youtube
             videoId={trailerKey}
-            opts={{
-              playerVars: { autoplay: 1 },
-
-              // origin: "localhost:3000",
-            }}
             className="row__trailer__video"
+            opts={{ playerVars: { autoplay: 1 } }}
           />
-        ) : null}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
