@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 // import { VerticalNav } from "./";
-import Youtube from "react-youtube";
+// import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
-import { strangerThingsCover } from "../images";
+// import { strangerThingsCover } from "../images";
 import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
 
 import "./header.css";
@@ -14,9 +14,9 @@ const Header = () => {
 
   useEffect(() => {
     const {
-      netflixTvPath,
+      // netflixTvPath,
       trendingTvPath,
-      netflixMoviesPath,
+      // netflixMoviesPath,
       trendingMoviesPath,
       topRatedMoviesPath,
       natGeoTvPath,
@@ -96,7 +96,7 @@ const Header = () => {
     }
   };
 
-  // console.log(trailerKey);
+  console.log(trailerKey);
   // console.log(randomCover);
 
   return (
