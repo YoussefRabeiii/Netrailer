@@ -8,7 +8,6 @@ header {
   padding-inline-start: var(--navWidth) !important;
 }
 
-header .header__top h1,
 header .header__continue h2,
 header .header__center .header__title,
 header .header__center .header__type h2,
@@ -18,12 +17,7 @@ header .header__center .header__description {
 
 header .header__top {
   padding: 5% 0;
-}
-
-header .header__top h1 {
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin-block-end: 25px;
+  width: fit-content;
 }
 
 header .header__continue {
@@ -114,12 +108,20 @@ header .header__center .header__watchLinks {
   transition: ease-in-out 0.8s;
 }
 
+.header__watchLink h2 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-block-start: 5px;
+  transition: ease-in-out 0.8s;
+}
+
 .header__watchLink-1,
 .header__watchLink-2:hover {
   border: 2px solid black;
 }
 
-.header__watchLink:hover {
+.header__watchLink:hover h2 {
   background-color: var(--primary);
 }
 
@@ -130,4 +132,67 @@ header .header__center .header__watchLinks {
 
 .header__watchLink:hover h2 .header__icons {
   color: var(--surface);
+}
+
+/* 📱 Mobile Version */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px;
+    padding-inline-start: 0 !important;
+  }
+
+  header .header__top {
+    margin: auto;
+  }
+
+  header .header__continue {
+    text-align: center;
+    margin-block-start: 40px;
+  }
+
+  header .header__continue .header__icons {
+    font-size: 1em;
+  }
+  header .header__continue h2 {
+    font-size: 1.2em;
+  }
+
+  header .header__continue h3 {
+    font-weight: 500;
+  }
+
+  header .header__center .header__type {
+    display: none;
+  }
+
+  header .header__center {
+    text-align: center;
+    margin-block-start: 60px;
+  }
+
+  header .header__center .header__type h2 {
+    margin: auto;
+  }
+
+  header .header__center .header__title {
+    font-size: 3.5em;
+  }
+
+  header .header__center .header__description {
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  header .header__center .header__watchLinks {
+    display: grid;
+    padding: 50px 25px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  header .header__center .header__watchLink {
+    padding: 0;
+    margin: auto;
+  }
 }
