@@ -107,7 +107,7 @@ const Header = () => {
       <div className="header__content">
         <div className="header__top">
           <div
-            onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
+            // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             className="header__continue"
           >
             <FaPlay className="fa header__icons" />
@@ -132,7 +132,7 @@ const Header = () => {
           <div className="header__watchLinks">
             <div
               className="header__watchLink header__watchLink-1"
-              onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
+              // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             >
               <h2>
                 <FaPlay className="fa header__icons" />
