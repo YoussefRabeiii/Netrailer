@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
 import { strangerThingsCover } from "../images";
-import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
+import { instance as axios, paths, imgBaseUrl } from "../api";
 
 import "./header.css";
 const Header = () => {
