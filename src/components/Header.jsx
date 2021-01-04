@@ -89,7 +89,7 @@ const Header = () => {
     }
   };
 
-  console.log(trailerKey);
+  // console.log(trailerKey);
   // console.log(randomCover);
 
   return (
