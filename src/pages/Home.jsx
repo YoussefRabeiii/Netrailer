@@ -8,8 +8,8 @@ const Home = () => {
   const {
     netflixTvPath,
     netflixMoviesPath,
-    // trendingMoviesPath,
-    // trendingTvPath,
+    trendingMoviesPath,
+    trendingTvPath,
     // natGeoTvPath,
     // actionMoviesPath,
     // actionTvPath,
@@ -30,18 +30,17 @@ const Home = () => {
         {/* <Persons /> */}
 
         <Row
-          isLargePoster={true}
+          isPoster
           title="Netflix Originals"
           fetchUrls={[netflixTvPath, netflixMoviesPath]}
         />
+        <Row
+          title="Trending"
+          fetchUrls={[trendingTvPath, trendingMoviesPath]}
+        />
         {
           // <Row
-          //   title="Trending"
-          //   isLargePoster={false}
-          //   fetchUrls={[trendingTvPath, trendingMoviesPath]}
-          // />
-          // <Row
-          //   isLargePoster={false}
+          //   isPoster={false}
           //   title="National Geographic"
           //   fetchUrls={[natGeoTvPath]}
           // />

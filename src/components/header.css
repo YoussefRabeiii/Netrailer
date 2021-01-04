@@ -8,6 +8,14 @@ header {
   padding-inline-start: var(--navWidth) !important;
 }
 
+header .header__top h1,
+header .header__continue h2,
+header .header__center .header__title,
+header .header__center .header__type h2,
+header .header__center .header__description {
+  color: #dedede;
+}
+
 header .header__top {
   padding: 5% 0;
 }
@@ -74,7 +82,7 @@ header .header__center .header__description {
   margin: 10px 0;
   font-weight: 400;
   padding-inline-end: 2%;
-  padding-inline-start: 0;
+  padding-inline-start: 10px;
   border-top-left-radius: 25px;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 25px;

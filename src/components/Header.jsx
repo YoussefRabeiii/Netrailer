@@ -96,7 +96,7 @@ const Header = () => {
     <header
       style={{
         backgroundImage: backdrop_path
-          ? `url(${imgBaseUrl}${backdrop_path})`
+          ? `url(${imgBaseUrl}original${backdrop_path})` // Original for the sizing
           : `url(${initialCover.cover})`,
       }}
     >

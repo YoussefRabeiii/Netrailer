@@ -5,7 +5,7 @@ import { instance as axios, imgBaseUrl, API_KEY } from "../api";
 
 import "./row.css";
 import "./card.css";
-const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
+const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
   const [media, setMedia] = useState([]);
   const [clickedID, setClickedID] = useState("");
   const [trailerKey, setTrailerKey] = useState("");
@@ -60,6 +60,8 @@ const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
     fetchData(fetchTv, fetchMovie);
   }, [fetchTv, fetchMovie]);
 
+  console.log(media);
+
   return (
     <div className="row">
       <h1 className="row__title">{title}</h1>
@@ -86,13 +88,11 @@ const Row = ({ title, isLargePoster, fetchUrls: [fetchTv, fetchMovie] }) => {
               onClick={(e) => onPoster(isSeries, finalTitle, id)}
             >
               <img
-                src={`${imgBaseUrl}${
-                  isLargePoster ? poster_path : backdrop_path
+                src={`${imgBaseUrl}${isPoster ? "w342" : "w780"}${
+                  isPoster ? poster_path : backdrop_path
                 }`}
                 alt={`${finalTitle} Poster`}
-                className={`${
-                  isLargePoster ? "card__poster" : "card__backdrop"
-                }`}
+                className={`${isPoster ? "card__poster" : "card__backdrop"}`}
               />
 
               <div className={`card__type ${isSeries ? "card__tv" : null}`}>

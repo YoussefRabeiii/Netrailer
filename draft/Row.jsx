@@ -6,7 +6,7 @@ import { instance as axios } from "../src/api";
 // import MovieTrailer from "MovieTrailer";
 
 import "./row.css";
-const Row = ({ title, isLargePoster, fetchUrl: { fetchTv, fetchMovie } }) => {
+const Row = ({ title, isPoster, fetchUrl: { fetchTv, fetchMovie } }) => {
   const [media, setMedia] = useState([]);
 
   useEffect(() => {

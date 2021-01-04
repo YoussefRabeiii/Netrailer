@@ -20,6 +20,10 @@
   display: none;
 }
 
+.row__cards .card img {
+  object-fit: contain;
+}
+
 .row__trailer {
   width: 100%;
   margin-inline-start: -20px;
