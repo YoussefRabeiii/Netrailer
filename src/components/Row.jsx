@@ -88,7 +88,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
               onClick={(e) => onPoster(isSeries, finalTitle, id)}
             >
               <img
-                src={`${imgBaseUrl}${isPoster ? "w342" : "w780"}${
+                src={`${imgBaseUrl}${isPoster ? "w185" : "w780"}${
                   isPoster ? poster_path : backdrop_path
                 }`}
                 alt={`${finalTitle} Poster`}
