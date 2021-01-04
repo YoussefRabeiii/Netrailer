@@ -73,21 +73,21 @@ const Header = () => {
 
   const finalTitle = title || original_title || name || original_name;
 
-  const onHeader = async (isSeries = false, id) => {
-    if (trailerKey) {
-      setTrailerKey("");
-    } else {
-      const { data: mediaVideos } = await axios.get(
-        `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
-      );
+  // const onHeader = async (isSeries = false, id) => {
+  //   if (trailerKey) {
+  //     setTrailerKey("");
+  //   } else {
+  //     const { data: mediaVideos } = await axios.get(
+  //       `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
+  //     );
 
-      const youtubeTrailer =
-        mediaVideos &&
-        mediaVideos.results.find((media) => media.type === "Trailer");
+  //     const youtubeTrailer =
+  //       mediaVideos &&
+  //       mediaVideos.results.find((media) => media.type === "Trailer");
 
-      setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
-    }
-  };
+  //     setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
+  //   }
+  // };
 
   // console.log(trailerKey);
   // console.log(randomCover);
