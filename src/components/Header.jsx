@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from "react";
 
 // import { VerticalNav } from "./";
-// import Youtube from "react-youtube";
+import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
-// import { strangerThingsCover } from "../images";
+import { strangerThingsCover } from "../images";
 import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
 
 import "./header.css";
 const Header = () => {
-  const [randomCover, setRandomCover] = useState({});
-  const [clickedID, setClickedID] = useState(null);
-  const [trailerKey, setTrailerKey] = useState(null);
+  const initialCover = {
+    id: "66732",
+    type: "series",
+    isSeries: true,
+    name: "Stranger Things",
+    cover: strangerThingsCover,
+    homepageLink: "https://www.netflix.com/title/80057281",
+    overview:
+      "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
+  };
+
+  const [randomCover, setRandomCover] = useState(initialCover);
+  const [trailerKey, setTrailerKey] = useState("");
 
   useEffect(() => {
     const {
@@ -49,22 +59,8 @@ const Header = () => {
     fetchData();
   }, []);
 
-  const initialCover = {
-    type: "series",
-    name: "Stranger Things",
-    homepageLink: "https://www.netflix.com/title/80057281",
-    // cover: strangerThingsCover,
-    networkLogo: "../images/Netflix.png",
-    overview:
-      "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
-
-    cover:
-      "https://image.tmdb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
-    // networkLogo: "https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-  };
-
   const {
-    id,
+    // id,
     name,
     title,
     overview,
@@ -78,21 +74,18 @@ const Header = () => {
   const finalTitle = title || original_title || name || original_name;
 
   const onHeader = async (isSeries = false, id) => {
-    if (clickedID === id) {
-      setClickedID(null);
-      setTrailerKey(null);
+    if (trailerKey) {
+      setTrailerKey("");
     } else {
-      setClickedID(id);
-
-      const { data } = await axios.get(
+      const { data: mediaVideos } = await axios.get(
         `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
       );
-      // const youtubeTrailer = mediaVideos.results.find(
-      //   (media) => media.type === "Trailer"
-      // );
 
-      console.log(data);
-      // setTrailerKey(youtubeTrailer.key);
+      const youtubeTrailer =
+        mediaVideos &&
+        mediaVideos.results.find((media) => media.type === "Trailer");
+
+      setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
     }
   };
 
@@ -102,7 +95,9 @@ const Header = () => {
   return (
     <header
       style={{
-        backgroundImage: `url(${imgBaseUrl}${backdrop_path})`,
+        backgroundImage: backdrop_path
+          ? `url(${imgBaseUrl}${backdrop_path})`
+          : `url(${initialCover.cover})`,
       }}
     >
       {/* <div className="header__nav">
@@ -112,7 +107,7 @@ const Header = () => {
       <div className="header__content">
         <div className="header__top">
           <div
-            // onClick={onHeader(randomCover.isSeries, randomCover.id)}
+            onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             className="header__continue"
           >
             <FaPlay className="fa header__icons" />
@@ -120,6 +115,7 @@ const Header = () => {
             <h3>{finalTitle || initialCover.name}</h3>
           </div>
         </div>
+
         <div className="header__center">
           <div className="header__type">
             <h2>{media_type || initialCover.type}</h2>
@@ -136,10 +132,7 @@ const Header = () => {
           <div className="header__watchLinks">
             <div
               className="header__watchLink header__watchLink-1"
-              // onClick={console.log(`The random Cover ID: ${id}`)}
-              // onClick={console.log(`The random Cover Type: ${media_type}`)}
-              // onClick={setClickedID(id)}
-              onClick={(e) => onHeader(media_type, id)}
+              onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             >
               <h2>
                 <FaPlay className="fa header__icons" />
@@ -152,6 +145,26 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {trailerKey && (
+        <div className="header__trailer">
+          <div className="header__trailer__header">
+            <h1 className="header__trailer__title">a</h1>
+            <h1
+              className="header__trailer__close"
+              onClick={(e) => setTrailerKey("")}
+            >
+              X
+            </h1>
+          </div>
+
+          <Youtube
+            videoId={trailerKey}
+            className="header__trailer__video"
+            opts={{ playerVars: { autoplay: 1 } }}
+          />
+        </div>
+      )}
     </header>
   );
 };

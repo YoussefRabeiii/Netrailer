@@ -1,1 +1,1 @@
-export { default as strangerThingsCover } from "./Stranger Things.jpg";
+export { default as strangerThingsCover } from "./Stranger-Things.jpg";
