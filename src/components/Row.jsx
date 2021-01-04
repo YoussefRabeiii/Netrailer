@@ -85,6 +85,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
             <div
               key={id}
               className="card"
+              title={finalTitle}
               onClick={(e) => onPoster(isSeries, finalTitle, id)}
             >
               <img
