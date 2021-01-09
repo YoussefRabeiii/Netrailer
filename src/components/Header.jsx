@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
 import { strangerThingsCover } from "../images";
-import { instance as axios, paths, imgBaseUrl } from "../api";
+import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
 
 import "./header.css";
 const Header = () => {
@@ -73,23 +73,23 @@ const Header = () => {
 
   const finalTitle = title || original_title || name || original_name;
 
-  // const onHeader = async (isSeries = false, id) => {
-  //   if (trailerKey) {
-  //     setTrailerKey("");
-  //   } else {
-  //     const { data: mediaVideos } = await axios.get(
-  //       `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
-  //     );
+  const onHeader = async (isSeries = false, id) => {
+    if (trailerKey) {
+      setTrailerKey("");
+    } else {
+      const { data: mediaVideos } = await axios.get(
+        `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
+      );
 
-  //     const youtubeTrailer =
-  //       mediaVideos &&
-  //       mediaVideos.results.find((media) => media.type === "Trailer");
+      const youtubeTrailer =
+        mediaVideos &&
+        mediaVideos.results.find((media) => media.type === "Trailer");
 
-  //     setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
-  //   }
-  // };
+      setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
+    }
+  };
 
-  // console.log(trailerKey);
+  console.log(trailerKey);
   // console.log(randomCover);
 
   return (
@@ -107,8 +107,8 @@ const Header = () => {
       <div className="header__content">
         <div className="header__top">
           <div
-            // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             className="header__continue"
+            // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
           >
             <FaPlay className="fa header__icons" />
             <h2>Continue Watching</h2>
@@ -132,7 +132,7 @@ const Header = () => {
           <div className="header__watchLinks">
             <div
               className="header__watchLink header__watchLink-1"
-              // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
+              onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             >
               <h2>
                 <FaPlay className="fa header__icons" />

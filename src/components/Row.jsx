@@ -60,7 +60,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
     fetchData(fetchTv, fetchMovie);
   }, [fetchTv, fetchMovie]);
 
-  console.log(media);
+  // console.log(media);
 
   return (
     <div className="row">
@@ -105,7 +105,11 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
       </div>
 
       {trailerKey && (
-        <div className="row__trailer">
+        <div
+          className={`row__trailer ${
+            trailerKey ? "row__trailer--fadeIn" : "row__trailer--fadeOut"
+          }`}
+        >
           <div className="row__trailer__header">
             <h1 className="row__trailer__title">{clickedTitle || null}</h1>
             <h1
