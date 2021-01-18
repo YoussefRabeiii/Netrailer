@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 // import { VerticalNav } from "./";
-import Youtube from "react-youtube";
+// import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
-import { strangerThingsCover } from "../images";
-import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
+// import { strangerThingsCover } from "../images";
+import { instance as axios, paths, imgBaseUrl } from "../api";
+// import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
 
 import "./header.css";
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
     type: "series",
     isSeries: true,
     name: "Stranger Things",
-    cover: strangerThingsCover,
+    // cover: strangerThingsCover,
     homepageLink: "https://www.netflix.com/title/80057281",
     overview:
       "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
