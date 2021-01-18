@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   const [randomCover, setRandomCover] = useState(initialCover);
-  const [trailerKey, setTrailerKey] = useState("");
+  // const [trailerKey, setTrailerKey] = useState("");
 
   useEffect(() => {
     const {
@@ -73,31 +73,34 @@ const Header = () => {
 
   const finalTitle = title || original_title || name || original_name;
 
-  const onHeader = async (isSeries = false, id) => {
-    if (trailerKey) {
-      setTrailerKey("");
-    } else {
-      const { data: mediaVideos } = await axios.get(
-        `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
-      );
+  // const onHeader = async (isSeries = false, id) => {
+  // if (trailerKey) {
+  //     setTrailerKey("");
+  //   } else {
+  //     const { data: mediaVideos } = await axios.get(
+  //       `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
+  //     );
 
-      const youtubeTrailer =
-        mediaVideos &&
-        mediaVideos.results.find((media) => media.type === "Trailer");
+  //     const youtubeTrailer =
+  //       mediaVideos &&
+  //       mediaVideos.results.find((media) => media.type === "Trailer");
 
-      setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
-    }
-  };
+  //     setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
+  //   }
+  // };
 
-  console.log(trailerKey);
+  // console.log(trailerKey);
   // console.log(randomCover);
 
   return (
     <header
       style={{
-        backgroundImage: backdrop_path
-          ? `url(${imgBaseUrl}original${backdrop_path})` // Original for the sizing
-          : `url(${initialCover.cover})`,
+        backgroundImage:
+          backdrop_path && `url(${imgBaseUrl}original${backdrop_path})`, // Original for the sizing
+
+        // backgroundImage: backdrop_path
+        // ? `url(${imgBaseUrl}original${backdrop_path})` // Original for the sizing
+        // : `url(${initialCover.cover})`,
       }}
     >
       {/* <div className="header__nav">
@@ -132,7 +135,7 @@ const Header = () => {
           <div className="header__watchLinks">
             <div
               className="header__watchLink header__watchLink-1"
-              onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
+              // onClick={(e) => onHeader(randomCover.isSeries, randomCover.id)}
             >
               <h2>
                 <FaPlay className="fa header__icons" />
@@ -146,7 +149,7 @@ const Header = () => {
         </div>
       </div>
 
-      {trailerKey && (
+      {/* {trailerKey && (
         <div className="header__trailer">
           <div className="header__trailer__header">
             <h1 className="header__trailer__title">a</h1>
@@ -164,7 +167,7 @@ const Header = () => {
             opts={{ playerVars: { autoplay: 1 } }}
           />
         </div>
-      )}
+      )} */}
     </header>
   );
 };
