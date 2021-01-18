@@ -89,6 +89,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
               onClick={(e) => onPoster(isSeries, finalTitle, id)}
             >
               <img
+                loading="lazy"
                 src={`${imgBaseUrl}${isPoster ? "w185" : "w780"}${
                   isPoster ? poster_path : backdrop_path
                 }`}
