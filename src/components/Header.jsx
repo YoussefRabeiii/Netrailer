@@ -11,7 +11,7 @@ import "./header.css";
 const Header = () => {
   const initialCover = {
     id: "66732",
-    type: "series",
+    type: "eries",
     isSeries: true,
     name: "Stranger Things",
     // cover: strangerThingsCover,
@@ -25,7 +25,7 @@ const Header = () => {
 
   useEffect(() => {
     const {
-      // netflixTvPath,
+      netflixTvPath,
       trendingTvPath,
       // netflixMoviesPath,
       trendingMoviesPath,
@@ -34,7 +34,7 @@ const Header = () => {
     } = paths;
 
     const fetchData = async () => {
-      // const { data: netflixTv } = await axios.get(netflixTvPath);
+      const { data: netflixTv } = await axios.get(netflixTvPath);
       const { data: trendingTv } = await axios.get(trendingTvPath);
       const { data: natGeoTv } = await axios.get(natGeoTvPath);
       // const { data: netflixMovies } = await axios.get(netflixMoviesPath);
@@ -42,7 +42,7 @@ const Header = () => {
       const { data: topRatedMovies } = await axios.get(topRatedMoviesPath);
 
       const response = [
-        // ...netflixTv.results,
+        ...netflixTv.results,
         ...trendingTv.results,
         ...natGeoTv.results,
         // ...netflixMovies.results,

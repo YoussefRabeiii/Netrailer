@@ -10,15 +10,14 @@ const Home = () => {
     netflixMoviesPath,
     trendingMoviesPath,
     trendingTvPath,
-    // natGeoTvPath,
-    // actionMoviesPath,
-    // actionTvPath,
-    // comedyTvPath,
-    // comedyMoviesPath,
-    // horrorTvPath,
-    // horrorMoviesPath,
-    // romanceTvPath,
-    // romanceMoviesPath,
+    actionMoviesPath,
+    actionTvPath,
+    comedyTvPath,
+    comedyMoviesPath,
+    horrorTvPath,
+    horrorMoviesPath,
+    romanceTvPath,
+    romanceMoviesPath,
     // sciFi /* BUG: Need to have a real path */,
   } = paths;
 
@@ -38,17 +37,10 @@ const Home = () => {
           title="Trending"
           fetchUrls={[trendingTvPath, trendingMoviesPath]}
         />
-        {
-          // <Row
-          //   isPoster={false}
-          //   title="National Geographic"
-          //   fetchUrls={[natGeoTvPath]}
-          // />
-          // <Row title="Action" fetchUrls={[actionTvPath, actionMoviesPath]} />
-          // <Row title="Comedy" fetchUrls={[comedyTvPath, comedyMoviesPath]} />
-          // <Row title="Horror" fetchUrls={[horrorTvPath, horrorMoviesPath]} />
-        }
-        {/* <Row title="Romance" fetchUrls={[romanceTvPath, romanceMoviesPath]} /> */}
+        <Row title="Action" fetchUrls={[actionTvPath, actionMoviesPath]} />
+        <Row title="Comedy" fetchUrls={[comedyTvPath, comedyMoviesPath]} />
+        <Row title="Horror" fetchUrls={[horrorTvPath, horrorMoviesPath]} />
+        <Row title="Romance" fetchUrls={[romanceTvPath, romanceMoviesPath]} />
       </main>
     </div>
   );
