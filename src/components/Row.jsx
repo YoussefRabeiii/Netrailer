@@ -13,7 +13,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
 
   const onPoster = async (isSeries = false, title, id) => {
     // So Why did I made this stupid logic and not like the one in the Header comp.
-    // If i just say if(TrailerKey) exist then close we wouldn't be able to change between posters whithout closing them first, So yeah this was the best thing I could thinck of when I'm half asleep
+    // If i just say if(TrailerKey) exist then close we wouldn't be able to change between posters whithout closing them first, So yeah this was the best thing I could think of when I'm half asleep
 
     if (clickedID === id) {
       setClickedID("");
@@ -60,7 +60,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
     fetchData(fetchTv, fetchMovie);
   }, [fetchTv, fetchMovie]);
 
-  // console.log(media);
+  // console.log(media[0]);
 
   return (
     <div className="row">
@@ -90,7 +90,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
             >
               <img
                 loading="lazy"
-                src={`${imgBaseUrl}${isPoster ? "w185" : "w780"}${
+                src={`${imgBaseUrl}${isPoster ? "w154" : "w300"}${
                   isPoster ? poster_path : backdrop_path
                 }`}
                 alt={`${finalTitle} Poster`}
