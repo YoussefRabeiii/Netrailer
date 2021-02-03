@@ -86,7 +86,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
               key={id}
               className="card"
               title={finalTitle}
-              onClick={(e) => onPoster(isSeries, finalTitle, id)}
+              onClick={() => onPoster(isSeries, finalTitle, id)}
             >
               <img
                 loading="lazy"
@@ -113,10 +113,7 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
         >
           <div className="row__trailer__header">
             <h1 className="row__trailer__title">{clickedTitle || null}</h1>
-            <h1
-              className="row__trailer__close"
-              onClick={(e) => onPosterClose()}
-            >
+            <h1 className="row__trailer__close" onClick={() => onPosterClose()}>
               X
             </h1>
           </div>

@@ -9,6 +9,7 @@ export const paths = {
   horrorTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_genres=27`,
   romanceTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_genres=10749`,
   documentariesTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_genres=99`,
+  sciFiTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_genres=878`,
 
   // By Genres Movies
   trendingMoviesPath: `/trending/movie/week?api_key=${API_KEY}&language=en-US`,
@@ -18,9 +19,11 @@ export const paths = {
   horrorMoviesPath: `/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
   romanceMoviesPath: `/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10749`,
   documentariesMoviesPath: `/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=99`,
+  sciFiMoviesPath: `/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=878`,
 
   // By Networks Series
   netflixTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_networks=213`,
+  cwTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_networks=71`,
   natGeoTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_networks=43`,
   bbcEarthTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_networks=3859`,
   animalPlanetTvPath: `/discover/tv?api_key=${API_KEY}&language=en-US&with_networks=91`,

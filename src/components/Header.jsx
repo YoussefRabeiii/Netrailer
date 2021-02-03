@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // import { VerticalNav } from "./";
 // import Youtube from "react-youtube";
 import { FaPlay } from "react-icons/fa";
-// import { strangerThingsCover } from "../images";
+import { strangerThingsCover } from "../images";
 import { instance as axios, paths, imgBaseUrl } from "../api";
 // import { instance as axios, paths, imgBaseUrl, API_KEY } from "../api";
 
@@ -11,10 +11,10 @@ import "./header.css";
 const Header = () => {
   const initialCover = {
     id: "66732",
-    type: "eries",
+    type: "Series",
     isSeries: true,
     name: "Stranger Things",
-    // cover: strangerThingsCover,
+    cover: strangerThingsCover,
     homepageLink: "https://www.netflix.com/title/80057281",
     overview:
       "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
@@ -96,12 +96,11 @@ const Header = () => {
   return (
     <header
       style={{
-        backgroundImage:
-          backdrop_path && `url(${imgBaseUrl}original${backdrop_path})`, // Original for the sizing
+        // backgroundImage: backdrop_path && `url(${imgBaseUrl}original${backdrop_path})`, // Original for the sizing
 
-        // backgroundImage: backdrop_path
-        // ? `url(${imgBaseUrl}original${backdrop_path})` // Original for the sizing
-        // : `url(${initialCover.cover})`,
+        backgroundImage: backdrop_path
+          ? `url(${imgBaseUrl}original${backdrop_path})` // Original for the sizing
+          : `url(${initialCover.cover})`,
       }}
     >
       {/* <div className="header__nav">

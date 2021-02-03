@@ -8,6 +8,7 @@ const Home = () => {
   const {
     netflixTvPath,
     netflixMoviesPath,
+    cwTvPath,
     trendingMoviesPath,
     trendingTvPath,
     actionMoviesPath,
@@ -18,7 +19,8 @@ const Home = () => {
     horrorMoviesPath,
     romanceTvPath,
     romanceMoviesPath,
-    // sciFi /* BUG: Need to have a real path */,
+    sciFiTvPath,
+    sciFiMoviesPath,
   } = paths;
 
   return (
@@ -33,11 +35,13 @@ const Home = () => {
           title="Netflix Originals"
           fetchUrls={[netflixTvPath, netflixMoviesPath]}
         />
+        <Row isPoster title="The CW Originals" fetchUrls={[cwTvPath]} />
         <Row
           title="Trending"
           fetchUrls={[trendingTvPath, trendingMoviesPath]}
         />
         <Row title="Action" fetchUrls={[actionTvPath, actionMoviesPath]} />
+        <Row title="Sci-Fi" fetchUrls={[sciFiTvPath, sciFiMoviesPath]} />
         <Row title="Comedy" fetchUrls={[comedyTvPath, comedyMoviesPath]} />
         <Row title="Horror" fetchUrls={[horrorTvPath, horrorMoviesPath]} />
         <Row title="Romance" fetchUrls={[romanceTvPath, romanceMoviesPath]} />
