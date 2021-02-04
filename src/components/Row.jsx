@@ -5,11 +5,18 @@ import { instance as axios, imgBaseUrl, API_KEY } from "../api";
 
 import "./row.css";
 import "./card.css";
-const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
+const Row = ({
+  rowID,
+  title,
+  isPoster = false,
+  fetchUrls: [fetchTv, fetchMovie],
+}) => {
   const [media, setMedia] = useState([]);
   const [clickedID, setClickedID] = useState("");
   const [trailerKey, setTrailerKey] = useState("");
   const [clickedTitle, setClickedTitle] = useState("");
+
+  // const [clickedkey, setClickedkey] = useState("");
 
   const onPoster = async (isSeries = false, title, id) => {
     // So Why did I made this stupid logic and not like the one in the Header comp.
@@ -30,6 +37,8 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
       setClickedID(id);
       setClickedTitle(title);
       setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
+
+      // setClickedkey()
     }
   };
 
@@ -37,6 +46,8 @@ const Row = ({ title, isPoster = false, fetchUrls: [fetchTv, fetchMovie] }) => {
     setClickedID("");
     setTrailerKey("");
     setClickedTitle("");
+
+    // setClickedkey("");
   };
 
   const fetchData = async (fetchTv, fetchMovie) => {
