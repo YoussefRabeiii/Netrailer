@@ -5,12 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Layout } from "./components";
 import { Home, About, Genres, SingleGenre, NotFound } from "./pages";
 
+import "./index.css";
+
 // Google Analytics Code
 import ReactGA from "react-ga";
 ReactGA.initialize("G-5HHE9XXJNE"); // This the New id (Measurement ID not the Universal ID "UA")
 ReactGA.pageview(window.location.pathname + window.location.search);
 
-import "./index.css";
 ReactDom.render(
   <Router>
     <Layout>
