@@ -16,8 +16,6 @@ const Row = ({
   const [trailerKey, setTrailerKey] = useState("");
   const [clickedTitle, setClickedTitle] = useState("");
 
-  // const [clickedkey, setClickedkey] = useState("");
-
   const onPoster = async (isSeries = false, title, id) => {
     // So Why did I made this stupid logic and not like the one in the Header comp.
     // If i just say if(TrailerKey) exist then close we wouldn't be able to change between posters whithout closing them first, So yeah this was the best thing I could think of when I'm half asleep
@@ -37,8 +35,6 @@ const Row = ({
       setClickedID(id);
       setClickedTitle(title);
       setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
-
-      // setClickedkey()
     }
   };
 
@@ -46,8 +42,6 @@ const Row = ({
     setClickedID("");
     setTrailerKey("");
     setClickedTitle("");
-
-    // setClickedkey("");
   };
 
   const fetchData = async (fetchTv, fetchMovie) => {
@@ -74,7 +68,7 @@ const Row = ({
   // console.log(media[0]);
 
   return (
-    <div className="row">
+    <div className="row" key={rowID}>
       <h1 className="row__title">{title}</h1>
 
       <div className="row__cards">

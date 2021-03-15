@@ -77,23 +77,6 @@ const Home = () => {
             fetchUrls={fetchUrls}
           />
         ))}
-
-        {/* <Row
-          isPoster
-          // rowID={uuid.v4()}
-          title="Netflix Originals"
-          fetchUrls={[netflixTvPath, netflixMoviesPath]}
-        />
-        <Row isPoster title="The CW Originals" fetchUrls={[cwTvPath]} />
-        <Row
-          title="Trending"
-          fetchUrls={[trendingTvPath, trendingMoviesPath]}
-        />
-        <Row title="Action" fetchUrls={[actionTvPath, actionMoviesPath]} />
-        <Row title="Sci-Fi" fetchUrls={[sciFiTvPath, sciFiMoviesPath]} />
-        <Row title="Comedy" fetchUrls={[comedyTvPath, comedyMoviesPath]} />
-        <Row title="Horror" fetchUrls={[horrorTvPath, horrorMoviesPath]} />
-        <Row title="Romance" fetchUrls={[romanceTvPath, romanceMoviesPath]} /> */}
       </main>
     </div>
   );
