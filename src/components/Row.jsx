@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import Youtube from "react-youtube";
+import { Link } from "react-router-dom";
+
+import { hyphenize } from "../helpers";
 import { instance as axios, imgBaseUrl, API_KEY } from "../api";
 
 import "./row.css";
@@ -14,6 +17,7 @@ const Row = ({
   const [media, setMedia] = useState([]);
   const [clickedID, setClickedID] = useState("");
   const [trailerKey, setTrailerKey] = useState("");
+  const [clickedType, setClickedType] = useState("");
   const [clickedTitle, setClickedTitle] = useState("");
 
   const onPoster = async (isSeries = false, title, id) => {
@@ -24,6 +28,7 @@ const Row = ({
       setClickedID("");
       setTrailerKey("");
       setClickedTitle("");
+      setClickedType("");
     } else {
       const { data: mediaVideos } = await axios.get(
         `/${isSeries ? "tv" : "movie"}/${id}/videos?api_key=${API_KEY}`
@@ -34,6 +39,7 @@ const Row = ({
 
       setClickedID(id);
       setClickedTitle(title);
+      setClickedType(isSeries ? "series" : "movies");
       setTrailerKey(youtubeTrailer ? youtubeTrailer.key : "");
     }
   };
@@ -117,7 +123,13 @@ const Row = ({
           }`}
         >
           <div className="row__trailer__header">
-            <h1 className="row__trailer__title">{clickedTitle || null}</h1>
+            <h1 className="row__trailer__title">
+              <Link
+                to={`${clickedType}/${hyphenize(clickedTitle)}-${clickedID}`}
+              >
+                {clickedTitle || null}
+              </Link>
+            </h1>
             <h1 className="row__trailer__close" onClick={() => onPosterClose()}>
               X
             </h1>
