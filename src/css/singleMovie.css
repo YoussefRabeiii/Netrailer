@@ -1,0 +1,16 @@
+.singleMovie {
+}
+
+/* Header */
+.singleMovie header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* BUG: Make it fix */
+}
+
+/* Main */
+.singleMovie main {
+}
+.singleMovie main h1 {
+}
