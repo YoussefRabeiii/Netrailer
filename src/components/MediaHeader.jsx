@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { imgBaseUrl } from "../api";
+import { instance as axios, API_KEY, imgBaseUrl } from "../api";
 
 import "./mediaHeader.css";
-const MediaHeader = ({
-  backdrop,
-  title,
-  rate,
-  overview,
-  date,
-  credits = [],
-}) => {
-  // console.log(credits);
+const MediaHeader = ({ backdrop, title, rate, overview, date, credits }) => {
+  const [castInfo, setCastInfo] = useState({});
+
+  const OnCastImg = async (castID) => {
+    const { data: castData } = await axios.get(
+      `/person/${castID}?api_key=${API_KEY}`
+    );
+
+    const { id, name, biography: bio } = castData;
+
+    setCastInfo({
+      id,
+      name,
+      bio: `${bio?.slice(0, 400)} ...`,
+    });
+  };
+
+  // TODO: useEffect to make the default cast info the first actor/actress without clicking
+
+  // console.log(castInfo);
 
   return (
     <header
@@ -30,7 +41,7 @@ const MediaHeader = ({
 
         <p className="mediaHeader__info__overView">{overview}</p>
 
-        <div className="mediaHeader__info__vids"></div>
+        <div className="mediaHeader__info__imgs"></div>
 
         <div className="mediaHeader__info__btns"></div>
       </section>
@@ -38,11 +49,26 @@ const MediaHeader = ({
       <section className="mediaHeader__cast">
         <h1 className="mediaHeader__cast__title">Cast</h1>
 
-        <span className="mediaHeader__cast__imgs"></span>
+        <span className="mediaHeader__cast__imgs">
+          {credits?.map((person) => {
+            return (
+              <img
+                // TODO: Do it in the CSS
+                width={100}
+                height={100}
+                src={`${imgBaseUrl}w342${person.profile_path}`}
+                alt={person.name || person.original_name}
+                onClick={() => {
+                  OnCastImg(person?.id);
+                }}
+              />
+            );
+          })}
+        </span>
 
-        {/* <h2 className="mediaHeader__cast__name"></h2> */}
+        <h2 className="mediaHeader__cast__name">{castInfo?.name}</h2>
 
-        <p className="mediaHeader__cast__bio"></p>
+        <p className="mediaHeader__cast__bio">{castInfo?.bio}</p>
 
         <span className="mediaHeader__cast__socials"></span>
       </section>

@@ -7,7 +7,7 @@ import { instance as axios, API_KEY } from "../api";
 import "../css/singleMovie.css";
 const SingleMovie = () => {
   const [movieMain, setMovieMain] = useState({});
-  const [movieCredits, setMovieCredits] = useState({});
+  const [movieCredits, setMovieCredits] = useState([]);
 
   const { movieURL } = useParams();
   const movieURLArr = movieURL.split("-");
@@ -15,15 +15,15 @@ const SingleMovie = () => {
 
   const fetchData = async (movieID) => {
     const { data: mainData } = await axios.get(
-      `/movie/${movieID}?api_key=${API_KEY}&language=en-US`
+      `/movie/${movieID}?api_key=${API_KEY}`
     );
 
     const { data: creditsData } = await axios.get(
-      `/movie/${movieID}/credits?api_key=${API_KEY}&language=en-US`
+      `/movie/${movieID}/credits?api_key=${API_KEY}`
     );
 
     setMovieMain(mainData);
-    setMovieCredits(creditsData?.cast);
+    setMovieCredits(creditsData?.cast?.slice(0, 10));
   };
 
   useEffect(() => {
