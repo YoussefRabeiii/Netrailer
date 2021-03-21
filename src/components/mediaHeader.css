@@ -1,0 +1,72 @@
+/* Single Movie/Series Header */
+.mediaHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mediaHeader section {
+  align-self: center;
+}
+
+/*** INFO ***/
+.mediaHeader__info {
+  /* background-color: aqua; */
+}
+
+/* Rate */
+.mediaHeader__info__rate {
+}
+.mediaHeader__info__rate span {
+}
+.mediaHeader__info__rate h3 {
+  display: inline-block;
+}
+
+/* Title */
+.mediaHeader__info__title {
+}
+
+/* Overview */
+.mediaHeader__info__overView {
+}
+
+/* Images */
+.mediaHeader__info__imgs {
+}
+
+.mediaHeader__info__imgs img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Btns */
+.mediaHeader__info__btns {
+}
+
+/*** CAST  ***/
+.mediaHeader__cast {
+  /* background-color: chartreuse; */
+}
+
+/* Cast Title */
+.mediaHeader__cast__title {
+}
+
+/* Cast Profile pics */
+.mediaHeader__cast__imgs {
+}
+
+.mediaHeader__cast__imgs img {
+}
+
+/* Cast Names */
+.mediaHeader__cast__name {
+}
+
+/* Cast Bio */
+.mediaHeader__cast__bio {
+}
+
+/* Cast Socials */
+.mediaHeader__cast__socials {
+}

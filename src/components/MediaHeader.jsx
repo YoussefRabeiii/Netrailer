@@ -54,8 +54,6 @@ const MediaHeader = ({ backdrop, title, rate, overview, date, credits }) => {
             return (
               <img
                 // TODO: Do it in the CSS
-                width={100}
-                height={100}
                 src={`${imgBaseUrl}w342${person.profile_path}`}
                 alt={person.name || person.original_name}
                 onClick={() => {
